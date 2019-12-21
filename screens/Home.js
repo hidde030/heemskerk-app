@@ -1,9 +1,10 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { StyleSheet, Text, View, Linking } from 'react-native'
 import { Button } from 'react-native-elements'
 import { withFirebaseHOC } from '../config/Firebase'
 
 class Home extends Component {
+  
   handleSignout = async () => {
     try {
       await this.props.firebase.signOut()
@@ -12,19 +13,64 @@ class Home extends Component {
       console.log(error)
     }
   }
+
   render() {
     return (
       <View style={styles.container}>
-        <Text>Home</Text>
-        <Button
-          title='Signout'
-          onPress={this.handleSignout}
+        <View style={styles.button}>
+        <Button 
+        
+          title='Begin wedstrijd'
+          onPress={() => this.props.navigation.push('Select')}
           titleStyle={{
-            color: '#F57C00'
+            color: 'white'
           }}
           type='clear'
         />
+        </View>
+        <View style={styles.button}>
+         <Button
+          title='Speleroverzicht(feature)'
+          onPress={() => this.props.navigation.push('Detail')}
+          titleStyle={{
+            color: 'white'
+          }}
+          type='clear'
+        />
+        </View>
+        <View style={styles.button}>
+         <Button
+          title='Leaderbord(feature)'
+          onPress={() => this.props.navigation.push('Detail')}
+          titleStyle={{
+            color: 'white'
+          }}
+          type='clear'
+        />
+        </View>
+        <View style={styles.button}>
+         <Button
+          title='Bezoek webshop'
+          onPress={() => Linking.openURL('https://www.heemskerk-sport.nl/')}
+          titleStyle={{
+            color: 'white'
+          }}
+          type='clear'
+        />
+        </View>
+
+        <View style={styles.button}>
+         <Button
+          title='log uit'
+          onPress={() => Linking.openURL('https://www.heemskerk-sport.nl/')}
+          titleStyle={{
+            color: 'white'
+          }}
+          type='clear'
+        />
+        </View>
       </View>
+      
     )
   }
 }
@@ -32,9 +78,18 @@ class Home extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: '#fff',
-    alignItems: 'center',
-    justifyContent: 'center'
+    justifyContent: 'center',
+    textAlign: 'center',
+    backgroundColor: 'white',
+    textTransform: 'uppercase',
+    
+  },
+  button: {
+    height:50,
+    margin: 20,
+    backgroundColor: 'black',
+    borderRadius: 6,
+   
   }
 })
 

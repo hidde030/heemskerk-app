@@ -13,6 +13,7 @@ const AuthNavigation = createStackNavigator(
     initialRouteName: 'Login',
     headerMode: 'none'
   }
+  
 )
 
 export default AuthNavigation

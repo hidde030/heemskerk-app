@@ -62,7 +62,7 @@ class Home extends Component {
         <View style={styles.button}>
          <Button
           title='log uit'
-          onPress={() => Linking.openURL('https://www.heemskerk-sport.nl/')}
+          onPress={() => Linking.openURL('Loguit')}
           titleStyle={{
             color: 'white'
           }}

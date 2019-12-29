@@ -30,7 +30,14 @@ const Firebase = {
       .collection('users')
       .doc(`${userData.uid}`)
       .set(userData)
-  }
+  },
+//   createNewScore: Goal => {
+//     return firebase
+//     .firestore()
+//     .collection('scores')
+//     .doc(`${goal.uid}`)
+//     .set(goal)
+//  }
 }
 
 export default Firebase

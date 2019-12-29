@@ -22,6 +22,7 @@ class Select extends Component {
             isDisabled: false
         }
     }
+    goToScore = () => this.props.navigation.navigate('Score')
     _handlePress() {
         this.setState({
             isDisabled: true
@@ -84,10 +85,10 @@ class Select extends Component {
                    <Button
                         style={{ fontSize: 20, color: 'white' }}
                         styleDisabled={{ color: 'white' }}
-                        disabled={isDisabled}
+                      
                         containerStyle={{ padding: 10, height: 45, overflow: 'hidden', borderRadius: 5, backgroundColor: 'black', width: 150, marginLeft: 130, marginTop: 100, }}
                         disabledContainerStyle={{ backgroundColor: 'black', opacity: 0.5, }}
-                        onPress={() =>this.props.navigation.push('Score')}
+                        onPress={this.goToScore}
                     >
                         BETALEN
                     </Button>

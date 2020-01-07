@@ -4,22 +4,12 @@ import { Button } from 'react-native-elements'
 import { withFirebaseHOC } from '../config/Firebase'
 
 class Home extends Component {
-  
-  handleSignout = async () => {
-    try {
-      await this.props.firebase.signOut()
-      this.props.navigation.navigate('Auth')
-    } catch (error) {
-      console.log(error)
-    }
-  }
 
   render() {
     return (
       <View style={styles.container}>
         <View style={styles.button}>
         <Button 
-        
           title='Begin wedstrijd'
           onPress={() => this.props.navigation.push('Select')}
           titleStyle={{

@@ -35,7 +35,7 @@ const Firebase = {
 //     return firebase
 //     .firestore()
 //     .collection('scores')
-//     .doc(`${goal.uid}`)
+//     .doc(`${goal.id}`)
 //     .set(goal)
 //  }
 }

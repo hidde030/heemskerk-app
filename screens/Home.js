@@ -41,7 +41,7 @@ class Home extends Component {
         <View style={styles.button}>
          <Button
           title='Leaderbord(feature)'
-          onPress={() => this.props.navigation.push('Detail')}
+          onPress={() => this.props.navigation.push('FireTest')}
           titleStyle={{
             color: 'white'
           }}

@@ -4,7 +4,9 @@ import { Button } from 'react-native-elements'
 import { withFirebaseHOC } from '../config/Firebase'
 
 class Home extends Component {
-
+  static navigationOptions = {
+    title: 'Home'
+  };
   render() {
     return (
       <View style={styles.container}>

@@ -1,0 +1,9 @@
+collection : Users 
+name: ""
+uid: ""
+email: ""
+
+collection : Scores 
+uid: ""
+name: ""
+score: ""

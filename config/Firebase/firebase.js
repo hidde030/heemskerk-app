@@ -31,6 +31,19 @@ const Firebase = {
       .doc(`${userData.uid}`)
       .set(userData)
   },
+  // createNewScore: userData =>{
+  //   return firebase
+  //     .firestore()
+  //     .collection('scores')
+  //     .doc('OuHpzA3vFSRsEardcdgPTkptLZp1')
+  //     .set(    
+  //        {
+  //       name: 'Anbu Selvan',
+  //       goal: '1'
+  //       },)
+  // }
+
+  
 //   createNewScore: Goal => {
 //     return firebase
 //     .firestore()

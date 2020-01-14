@@ -3,7 +3,7 @@ import { Image } from 'react-native-elements'
 
 const AppLogo = () => (
   <Image
-    source={require('../assets/flame.png')}
+    source={require('../assets/logo-heemskerk.png')}
     style={{ width: 200, height: 200 }}
   />
 )

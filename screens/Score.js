@@ -12,6 +12,10 @@ class Score extends Component {
             <View style={styles.container} >
                 <Text>scores page</Text>
             </View>
+            <View style={{flex: 1, flexDirection: 'row'}}>
+                <View style={{width: 100, height: 100, backgroundColor: 'powderblue', margin:20}}></View>
+                <View style={{width: 100, height: 100, backgroundColor: 'skyblue', margin:20}} ></View>
+            </View>
         )
     }
 }

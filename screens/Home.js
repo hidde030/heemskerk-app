@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View, Linking } from 'react-native'
+import { StyleSheet, Text, View, Linking} from 'react-native'
 import { Button } from 'react-native-elements'
 import { withFirebaseHOC } from '../config/Firebase'
 
@@ -61,6 +61,7 @@ class Home extends Component {
           type='clear'
         />
         </View>
+        
       </View>
       
     )

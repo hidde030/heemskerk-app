@@ -2,7 +2,9 @@ import React, { Component, Fragment } from 'react'
 import { StyleSheet, Text, View, Linking, Picker } from 'react-native'
 
 import { withFirebaseHOC } from '../config/Firebase'
+import CountDown from 'react-native-countdown-component';
 
+ 
 class Score extends Component {
     state = {
         language: 'java',
@@ -13,6 +15,19 @@ class Score extends Component {
             <View style={styles.container}>
                 <View style={styles.time}>
                     <Text style={{ color: 'white', fontSize: 20, textAlign: 'center', alignSelf: 'center', }}>REST. TIJD</Text>
+                    
+                        <CountDown
+                            size={30}
+                            until={600}
+                            onFinish={() => alert('De wedstrijd is afgelopen')}
+                            digitStyle={{backgroundColor: '#FFF', borderWidth: 2, borderColor: '#000',marginTop:9}}
+                            digitTxtStyle={{color: '#000'}}
+                            timeLabelStyle={{color: 'red', fontWeight: 'bold'}}
+                            separatorStyle={{color: '#fff'}}
+                            timeToShow={['M', 'S']}
+                            timeLabels={{m: null, s: null}}
+                            showSeparator
+                        />
                 </View>
                 <View style={{}}>
                     <View style={{ flexWrap: 'wrap', flexDirection: 'row',  justifyContent: 'space-around' }}>
@@ -71,10 +86,12 @@ class Score extends Component {
                 </View>
 
                     <View style={{ flexDirection: 'row'  }}>
-                        <Text style={styles.text}>GESPEELDE WEDSTRIJDEN</Text>
-
+                        <Text style={styles.text}>{`GESPEELDE\nWEDSTRIJDEN`}</Text>
                     </View>
            
+                    <View style={{flexDirection:'row'}}>
+                        <View style={styles.square}>1</View>
+                   </View>
 
             </View>
 
@@ -104,7 +121,12 @@ const styles = StyleSheet.create({
         textAlign: 'center',
         width: '100%',
         fontSize: 15 
-    }
+    },
+    square:{
+        width:10,
+        height:10,
+        backgroundColor:'#fff'
+    },
 
 
 })

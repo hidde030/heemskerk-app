@@ -36,7 +36,8 @@ class Initial extends Component {
         require('../assets/icon.png')
       ]),
       Font.loadAsync({
-        ...Icon.Ionicons.font
+        ...Icon.Ionicons.font,
+        'bitter': require('../fonts/Bitter-Bold.ttf'),
       })
     ])
   }

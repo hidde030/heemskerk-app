@@ -3,6 +3,7 @@ import { StyleSheet, Text, View, Linking, Picker } from 'react-native'
 
 import { withFirebaseHOC } from '../config/Firebase'
 import CountDown from 'react-native-countdown-component';
+import { AuthSession } from 'expo';
 
  
 class Score extends Component {
@@ -31,7 +32,7 @@ class Score extends Component {
                 </View>
                 <View style={{}}>
                     <View style={{ flexWrap: 'wrap', flexDirection: 'row',  justifyContent: 'space-around' }}>
-                        <Text style={{ textAlign: 'center', width: '100%', fontSize: 20 }}>Score</Text>
+                        <Text style={{ textAlign: 'center', width: '100%', fontSize: 20, fontWeight:"bold" }}>Score</Text>
                         <View style={{ width: 100, alignSelf: 'center', height: 100, backgroundColor: '#000' }}>
                             <Picker
                                 selectedValue={this.state.language}
@@ -89,15 +90,24 @@ class Score extends Component {
                         <Text style={styles.text}>{`GESPEELDE\nWEDSTRIJDEN`}</Text>
                     </View>
            
-                    <View style={{flexDirection:'row'}}>
-                        <View style={styles.square}>1</View>
+                    <View style={{flexDirection:'row',  alignSelf: 'center',}}>
+                        <View style={styles.square}></View>
+                        <View style={styles.square}></View>
+                        <View style={styles.square}></View>
+                        <View style={styles.square}></View>
+                        <View style={styles.square}></View>
+                        <View style={styles.square}></View>
+                   </View>
+                   <View style={{flexDirection:'row',  alignSelf: 'center',}}>
+                     <Text style={styles.punten}>1</Text>
+                     <Text style={styles.punten}>2</Text>
+                     <Text style={styles.punten}>3</Text>
+                     <Text style={styles.punten}>4</Text>
+                     <Text style={styles.punten}>5</Text>
+                     <Text style={styles.punten}>6</Text>
                    </View>
 
             </View>
-
-
-
-
         )
     }
 }
@@ -110,6 +120,7 @@ const styles = StyleSheet.create({
     },
     time: {
         height: '20%',
+        height: 'auto',
         backgroundColor: '#000',
         alignItems: 'stretch',
     },
@@ -120,13 +131,22 @@ const styles = StyleSheet.create({
     text: {
         textAlign: 'center',
         width: '100%',
-        fontSize: 15 
+        fontSize: 15 ,
+        fontWeight:"bold"
     },
     square:{
-        width:10,
-        height:10,
-        backgroundColor:'#fff'
-    },
+        width:25,
+        height:25,
+        backgroundColor:'#000',
+        margin: 10,
+        borderRadius: 5
+    }, punten:{
+        width:25,
+        height:25,
+        margin: 10,
+        marginTop:-10,
+        left:6
+    }
 
 
 })

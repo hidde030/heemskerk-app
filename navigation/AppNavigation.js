@@ -3,6 +3,7 @@ import Home from '../screens/Home'
 import Detail from '../screens/Detail'
 import Select from '../screens/Select'
 import Score from '../screens/Score'
+import Leaderbord from '../screens/Leaderbord'
 // import FireTest from '../screens/FireTest'
 
 const AppNavigation = createStackNavigator(
@@ -11,6 +12,7 @@ const AppNavigation = createStackNavigator(
     Select: { screen: Select },
     Detail: { screen: Detail },
     Score: { screen: Score },
+    Leaderbord: {screen: Leaderbord}
     // FireTest : { screen: FireTest },
    
   },

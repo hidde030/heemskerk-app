@@ -31,16 +31,12 @@ const Firebase = {
       .doc(`${userData.uid}`)
       .set(userData)
   },
-  // createNewScore: userData =>{
+  // createNewScore: scores =>{
   //   return firebase
   //     .firestore()
   //     .collection('scores')
-  //     .doc('OuHpzA3vFSRsEardcdgPTkptLZp1')
-  //     .set(    
-  //        {
-  //       name: 'Anbu Selvan',
-  //       goal: '1'
-  //       },)
+  //     .doc(`${scores}`)
+  //     .set(scores)
   // }
 
   
@@ -51,6 +47,7 @@ const Firebase = {
 //     .doc(`${goal.id}`)
 //     .set(goal)
 //  }
+
 }
 
 export default Firebase

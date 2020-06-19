@@ -59,7 +59,7 @@ class Select extends Component {
                         Zonder Tijd
                     </Button>
                 </View>
-                {/* postion absolute is de text */}
+              
                 <Text style={styles.text}>Spelers</Text>
                 <View style={styles.speler}>
 
@@ -96,6 +96,8 @@ class Select extends Component {
                     >
                         BETALEN
                     </Button>
+                    
+
             </View>
         )
     }
@@ -115,30 +117,18 @@ const styles = StyleSheet.create({
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
-    text: {
-        position: 'absolute',
-        left: 150,
-        top: 100,
-        color: 'black',
+    text:{
+        textAlign:'center',
         fontWeight: 'bold',
         fontSize: 30
-
-
-
     },
     texts: {
-        position: 'absolute',
-        left: 115,
-        top: 0,
+        textAlign:'center',
+       
         color: 'black',
         fontWeight: 'bold',
         fontSize: 30
-
-
-
     }
-
-
 
 })
 

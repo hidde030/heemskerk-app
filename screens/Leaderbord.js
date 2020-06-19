@@ -1,71 +1,94 @@
-import React, { Component } from 'react'
-import { StyleSheet, Text, View, Linking } from 'react-native'
-import { withFirebaseHOC } from '../config/Firebase'
+
+import React, { Component } from 'react';
+import { StyleSheet, ScrollView, ActivityIndicator, View } from 'react-native';
 import { ListItem } from 'react-native-elements'
-
-const list = [
-    {
-        name: 'Name user',
-        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/ladylexy/128.jpg',
-        subtitle: 'Test user',
-     
-    },
-    {
-        name: 'Name user',
-        avatar_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg',
-        subtitle: 'Test user',
-     
-    },
-
-]
+import { withFirebaseHOC } from '../config/Firebase'
+import firebase from 'firebase';
+import 'firebase/firestore';
 
 class Leaderbord extends Component {
 
+  constructor() {
+    super();
+    this.firestoreRef = firebase.firestore().collection('users');
+    this.state = {
+      isLoading: true,
+      userArr: []
+    };
+  }
 
-    render() {
-        return (
-            <View style={styles.container}>
-                <Text style={styles.header}>Leaderbord</Text>
+  componentDidMount() {
+    this.unsubscribe = this.firestoreRef.onSnapshot(this.getCollection);
+  }
 
-                <View style={styles.black}>
-                    {
-                        list.map((l, i) => (
-                            <ListItem
-                                key={i}
-                                leftAvatar={{ source: { uri: l.avatar_url } }}
-                                title={l.name}
-                                subtitle={l.subtitle}
-                                // Ik moet ff kijken hoe ik de punten ga weergeven de badge moet de value in de state voor firebase
-                                badge={{ value: 3, textStyle: { color: 'white' ,backgroundColor:'black'}}}
-                                bottomDivider
-                            />
-                        ))
-                    }
-                </View>
-            </View>
+  componentWillUnmount(){
+    this.unsubscribe();
+  }
 
-        )
-    }
+  getCollection = (querySnapshot) => {
+    const userArr = [];
+    querySnapshot.forEach((res) => {
+      const { name, email, } = res.data();
+      userArr.push({
+        key: res.id,
+        res,
+        name,
+        email,
+     
+      });
+    });
+    this.setState({
+      userArr,
+      isLoading: false,
+   });
+  }
+
+  render() {
+    if(this.state.isLoading){
+      return(
+        <View style={styles.preloader}>
+          <ActivityIndicator size="large" color="#9E9E9E"/>
+        </View>
+      )
+    }    
+    return (
+      <ScrollView style={styles.container}>
+          {
+            this.state.userArr.map((item, i) => {
+              return (
+                <ListItem
+                  key={i}
+                  chevron
+                  bottomDivider
+                  title={item.name}
+                  subtitle={item.email}
+                  onPress={() => {
+                    this.props.navigation.navigate('Home', {
+                      userkey: item.key
+                    });
+                  }}/>
+              );
+            })
+          }
+      </ScrollView>
+    );
+  }
 }
 
 const styles = StyleSheet.create({
-    container: {
-
-        justifyContent: 'center',
-        textAlign: 'center',
-        backgroundColor: 'white',
-        textTransform: 'uppercase',
-
-    },
-    header: {
-        alignSelf: "center",
-        fontSize: 40,
-        fontWeight: "bold",
-
-    },black:{
-        backgroundColor:"black"
-    }
-
+  container: {
+   flex: 1,
+   paddingBottom: 22
+  },
+  preloader: {
+    left: 0,
+    right: 0,
+    top: 0,
+    bottom: 0,
+    position: 'absolute',
+    alignItems: 'center',
+    justifyContent: 'center'
+  }
 })
 
-export default withFirebaseHOC(Leaderbord)
+export default withFirebaseHOC(Leaderbord);

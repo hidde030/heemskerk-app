@@ -28,13 +28,18 @@ class Score extends Component {
 
     getCollection = (querySnapshot) => {
         const userArr = [];
+
         querySnapshot.forEach((res) => {
+            
+            // const { uid } = response.user
             const { name, goal } = res.data();
+            // console.log(goal, name)
             userArr.push({
                 key: res.id,
                 res,
-                name,
-                goal
+                goal,
+                name
+
 
             });
         });
@@ -73,37 +78,55 @@ class Score extends Component {
                 <View style={{}}>
                     <Text style={{ textAlign: 'center', width: '100%', fontSize: 20, marginTop: 20, fontWeight: "bold" }}>Score</Text>
                     <View style={{ flexWrap: 'wrap', flexDirection: 'row', marginTop: 20, justifyContent: 'center' }}>
-                        <View style={{ width: 60, alignSelf: 'center', marginRight: 10, height: 60, backgroundColor: '#000' }}>
-                          
-                                {
-                                    this.state.userArr.map((item, i) => {
-                                        return (
-                                            <ListItem
-                                                key={i}
-                                                chevron
-                                                bottomDivider
-                                                title={item.name}
-                                                subtitle={item.goal}
-                                                style={{  textAlign: 'center', fontSize: 20, fontWeight: "bold", color: '#fff', lineHeight: 60  }}
-                                            />
-                                        );
-                                    })
-                                }
-                           
+                    
+                        {
+                            this.state.userArr.map((item, i) => {
+                                
+                                return (
+                                    <View  style={{ width: 60, alignSelf: 'center', marginRight: 10, height: 60, backgroundColor: '#000' }} key={i} >
 
 
-                        </View>
+                                        <Text style={{textAlign: 'center', fontSize: 20, fontWeight: "bold", color: '#fff', lineHeight: 60 }}>
+                                           {item.goal}
+                                        </Text>
+                                    </View>
+                                );
+                            })
+                        }
+       
 
-                        <View style={{ width: 60, height: 60, backgroundColor: '#000', }}>
-                            <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: "bold", color: '#fff', lineHeight: 60 }}>2</Text>
+                        {
+                            this.state.userArr.map((item, i) => {
+                                return (
+                                    <View  style={{ width: 60, alignSelf: 'center', marginRight: 10, height: 60, backgroundColor: '#000' }} key={i}>
+                                        <Text style={{textAlign: 'center', fontSize: 20, fontWeight: "bold", color: '#fff', lineHeight: 60 }}>
+                                            {item.goal}
+                                        </Text>
+                                    </View>
+                                );
+                            })
+                        }
+       
 
-                        </View>
                     </View>
                 </View>
                 <View style={{}}>
                     <View style={{ flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'center', fontWeight: "bold" }}>
                         <View style={{ width: 100, height: 50 }}>
-                            <Text>JESSE</Text>
+                        {
+                            this.state.userArr.map((item, i) => {
+                                return (
+                                    <View  style={{ color:'#000',width: 100, height: 50 }} key={i} >
+
+
+                                        <Text style={{ color: '#000',width: 100, height: 50, marginLeft:40  }}>
+                                        {item.name}
+                                        </Text>
+                                    </View>
+                                );
+                            })
+                        }
+       
                         </View>
                         <View style={{ width: 100, height: 50 }} >
                             <Text>KEVIN</Text>

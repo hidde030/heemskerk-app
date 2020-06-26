@@ -24,8 +24,7 @@
       "**/*"
     ],
     "ios": {
-      "supportsTablet": true,
-      "bundleIdentifier": "heemskerk.heemskerk.heemskerk-voetbaltafel",
+      "bundleIdentifier": "heemskerk.heemskerk.heemskerkvoetbaltafel",
       "buildNumber": "2.0.0"
     },
     "android": {

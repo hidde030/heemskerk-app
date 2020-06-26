@@ -12,8 +12,8 @@ const AppNavigation = createStackNavigator(
     Select: { screen: Select },
     Detail: { screen: Detail },
     Score: { screen: Score },
-    Leaderbord: {screen: Leaderbord}
-    // FireTest : { screen: FireTest },
+    Leaderbord: {screen: Leaderbord},
+    // FireTest : { screen: FireTest }
    
   },
   {

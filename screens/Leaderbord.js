@@ -28,12 +28,13 @@ class Leaderbord extends Component {
   getCollection = (querySnapshot) => {
     const userArr = [];
     querySnapshot.forEach((res) => {
-      const { name, email, } = res.data();
+      const { name, email, avatar_url} = res.data();
       userArr.push({
         key: res.id,
         res,
         name,
         email,
+        avatar_url
      
       });
     });
@@ -47,7 +48,9 @@ class Leaderbord extends Component {
     if(this.state.isLoading){
       return(
         <View style={styles.preloader}>
+          
           <ActivityIndicator size="large" color="#9E9E9E"/>
+
         </View>
       )
     }    
@@ -61,6 +64,7 @@ class Leaderbord extends Component {
                   chevron
                   bottomDivider
                   title={item.name}
+                  avatar_url={{ source: { uri: item.avatar_url}}}
                   subtitle={item.email}
                   onPress={() => {
                     this.props.navigation.navigate('Home', {

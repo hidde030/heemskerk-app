@@ -5,7 +5,7 @@ import Button from 'react-native-button';
 import { withFirebaseHOC } from '../config/Firebase'
 
 class Select extends Component {
-    //dit doet niks nog 
+    //dit doet niks nog
     // static navigationOptions = {
     //     title: 'Home',
     //     headerStyle: {
@@ -36,44 +36,42 @@ class Select extends Component {
         const { isDisabled } = this.state;
         return (
             <View style={styles.container}>
-                <Text style={styles.texts}>SPEELWIJZEN</Text>
+                <Text style={styles.texts}>SPEELWIJZE</Text>
                 <View style={styles.buttonContainer}>
                     <Button
-                        style={{ fontSize: 20, color: 'white' }}
+                        style={{ fontSize: 20, color: 'white', padding: 10}}
                         styleDisabled={{ color: 'white' }}
                         disabled={isDisabled}
-                        containerStyle={{ height: 45, overflow: 'hidden', borderRadius: 18,  backgroundColor: 'black', width: 150, marginLeft: 20, marginTop: 50, }}
+                        containerStyle={{ borderRadius: 18,  backgroundColor: 'black', width: 120, marginRight: 10, }}
                         disabledContainerStyle={{ backgroundColor: 'black', opacity: 0.5, }}
                         onPress={() => this._handlePress()}
                     >
-                        Met Tijd
+                    Met Tijd
                     </Button>
                     <Button
                         style={{ fontSize: 20, color: 'white' }}
                         styleDisabled={{ color: 'white' }}
                         disabled={isDisabled}
-                        containerStyle={{ height: 45, overflow: 'hidden', borderRadius: 18, backgroundColor: 'black', width: 150, marginRight: 20, marginTop: 50, }}
+                        containerStyle={{ overflow: 'hidden', borderRadius: 18, backgroundColor: 'black', width: 120, }}
                         disabledContainerStyle={{ backgroundColor: 'black', opacity: 0.5, }}
                         onPress={() => this._handlePress()}
                     >
-                        Zonder Tijd
+                    Zonder Tijd
                     </Button>
                 </View>
-              
+                {/* postion absolute is de text */}
                 <Text style={styles.text}>Spelers</Text>
-                <View style={styles.speler}>
-
+                <View style={{ flexDirection: 'row', margin: 10, justifyContent: 'center'}}>
                     <Button
                         style={{ fontSize: 20, color: 'white' }}
                         styleDisabled={{ color: 'white' }}
                         disabled={isDisabled}
-                        containerStyle={{ padding: 10, height: 45, overflow: 'hidden', borderRadius: 25, backgroundColor: 'black', width: 100, marginLeft: 100, marginTop: 50, }}
+                        containerStyle={{ padding: 10, height: 45, margin: 10, overflow: 'hidden', borderRadius: 25, backgroundColor: 'black', width: 100, marginLeft: 100, marginTop: 50, }}
                         disabledContainerStyle={{ backgroundColor: 'black', opacity: 0.5, }}
                         onPress={() => this._handlePress()}
                     >
                         2
                     </Button>
-                  
                     <Button
                         style={{ fontSize: 20, color: 'white' }}
                         styleDisabled={{ color: 'white' }}
@@ -84,20 +82,19 @@ class Select extends Component {
                     >
                         4
                     </Button>
-
                 </View>
+                <View style={{ flexWrap: 'wrap', flexDirection: 'row', marginTop: 20, justifyContent: 'center'}}>
                    <Button
                         style={{ fontSize: 20, color: 'white' }}
                         styleDisabled={{ color: 'white' }}
-                      
-                        containerStyle={{ padding: 10, height: 45, overflow: 'hidden', borderRadius: 5, backgroundColor: 'black', width: 150, marginLeft: 130, marginTop: 100, }}
+
+                        containerStyle={{  padding: 10, height: 45, overflow: 'hidden', borderRadius: 5, backgroundColor: 'black', width: 150,}}
                         disabledContainerStyle={{ backgroundColor: 'black', opacity: 0.5, }}
                         onPress={this.goToScore}
                     >
                         BETALEN
                     </Button>
-                    
-
+                    </View>
             </View>
         )
     }
@@ -106,31 +103,36 @@ class Select extends Component {
 const styles = StyleSheet.create({
     container: {
         height: '100%',
+        margin: 'auto',
+        textAlign: 'center',
         marginTop: 60
     },
     buttonContainer: {
+        marginTop: 40,
+        display: 'flex',
         flexDirection: 'row',
-        justifyContent: 'space-between'
-
+        justifyContent: 'center'
     },
     speler: {
         flexDirection: 'row',
         justifyContent: 'space-between'
     },
-    text:{
-        textAlign:'center',
-        fontWeight: 'bold',
-        fontSize: 30
-    },
+
     texts: {
-        textAlign:'center',
-       
+        display: 'flex',
+        textAlign: 'center',
+        top: 0,
         color: 'black',
         fontWeight: 'bold',
         fontSize: 30
+    },
+   text: {
+    display: 'flex',
+    textAlign: 'center',
+    fontWeight: 'bold',
+    fontSize: 30
     }
-
 })
 
 
-export default withFirebaseHOC(Select)
+export default withFirebaseHOC(Select);

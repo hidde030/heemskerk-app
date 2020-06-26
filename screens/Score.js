@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react'
 import { StyleSheet, Text, View, Linking, ActivityIndicator } from 'react-native'
-import { ListItem } from 'react-native-elements'
+import { ListItem, Button  } from 'react-native-elements'
+
 import firebase from 'firebase';
 import 'firebase/firestore';
 import { withFirebaseHOC } from '../config/Firebase'
@@ -176,6 +177,17 @@ class Score extends Component {
                     <View style={styles.circle}></View>
                     <View style={styles.circle}></View>
                 </View>
+                <View style={styles.button}>
+         <Button
+          title='winner'
+          onPress={() => Linking.openURL('Winner')}
+          titleStyle={{
+            color: 'white',
+            textTransform: 'uppercase',
+          }}
+          type='clear'
+        />
+        </View>
             </View>
         )
     }
@@ -234,7 +246,14 @@ const styles = StyleSheet.create({
         position: 'absolute',
         alignItems: 'center',
         justifyContent: 'center'
-    }
+    },
+    button: {
+        height:50,
+        margin: 20,
+        backgroundColor: 'black',
+        borderRadius: 6,
+        textTransform: 'uppercase',
+      }
 
 
 })

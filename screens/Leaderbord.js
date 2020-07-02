@@ -1,7 +1,7 @@
 
 import React, { Component } from 'react';
-import { StyleSheet, ScrollView, ActivityIndicator, View } from 'react-native';
-import { ListItem } from 'react-native-elements'
+import { StyleSheet, ScrollView, ActivityIndicator, View,Text} from 'react-native';
+import { ListItem,Avatar } from 'react-native-elements'
 import { withFirebaseHOC } from '../config/Firebase'
 import firebase from 'firebase';
 import 'firebase/firestore';
@@ -28,13 +28,17 @@ class Leaderbord extends Component {
   getCollection = (querySnapshot) => {
     const userArr = [];
     querySnapshot.forEach((res) => {
-      const { name, email, avatar_url} = res.data();
+      
+      const { name, email, avatar_url,scores,goals} = res.data();
+      console.log(avatar_url)
       userArr.push({
         key: res.id,
         res,
         name,
         email,
-        avatar_url
+        avatar_url,
+        scores,
+        goals
      
       });
     });
@@ -42,6 +46,7 @@ class Leaderbord extends Component {
       userArr,
       isLoading: false,
    });
+   
   }
 
   render() {
@@ -57,20 +62,27 @@ class Leaderbord extends Component {
     return (
       <ScrollView style={styles.container}>
           {
+            
             this.state.userArr.map((item, i) => {
+
               return (
                 <ListItem
                   key={i}
                   chevron
                   bottomDivider
+                  subtitleNumberOfLines={25}
+                  containerStyle={styles.item}
                   title={item.name}
-                  avatar_url={{ source: { uri: item.avatar_url}}}
-                  subtitle={item.email}
+                  leftAvatar={<Avatar rounded large source={{uri: item.avatar_url}} height={80} width={80}/>}
+                  // leftAvatar={{ source: { uri: item.avatar_url } } height={'100'} width={'100'}}
+                  // subtitle={{<View><Text>3214</Text></View>}} {item.scores}
+                  rightSubtitle={item.goals}
+                  rightTitle={goals}
                   onPress={() => {
-                    this.props.navigation.navigate('Home', {
+                    this.props.navigation.navigate('', {
                       userkey: item.key
                     });
-                  }}/>
+                  }}></ListItem>
               );
             })
           }
@@ -92,7 +104,14 @@ const styles = StyleSheet.create({
     position: 'absolute',
     alignItems: 'center',
     justifyContent: 'center'
-  }
+  },
+  // item: {
+  //   backgroundColor: '#FFF',
+  //   padding: 40,
+  //   marginVertical: 4,
+  //   marginHorizontal: 16,
+  // },
+
 })
 
 export default withFirebaseHOC(Leaderbord);

@@ -10,7 +10,7 @@ const SwitchNavigator = createSwitchNavigator(
     App: AppNavigation
   },
   {
-    initialRouteName: 'App'
+    initialRouteName: 'Auth'
   }
 )
 

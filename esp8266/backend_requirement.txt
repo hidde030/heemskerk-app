@@ -1,0 +1,9 @@
+1: ESP8266 d1 mini
+1: LDR
+1: 1k ohm resistor
+2: LED
+4: jumper cables
+1: breadboard
+
+
+dependencies in arduino code.

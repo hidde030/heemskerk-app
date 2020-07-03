@@ -4,6 +4,7 @@ import Detail from '../screens/Detail'
 import Select from '../screens/Select'
 import Score from '../screens/Score'
 import Leaderbord from '../screens/Leaderbord'
+import Winner from '../screens/Winner'
 // import FireTest from '../screens/FireTest'
 
 const AppNavigation = createStackNavigator(
@@ -12,8 +13,9 @@ const AppNavigation = createStackNavigator(
     Select: { screen: Select },
     Detail: { screen: Detail },
     Score: { screen: Score },
-    Leaderbord: {screen: Leaderbord}
-    // FireTest : { screen: FireTest },
+    Leaderbord: {screen: Leaderbord},
+    Winner:{screen:Winner},
+    // FireTest : { screen: FireTest }
    
   },
   {

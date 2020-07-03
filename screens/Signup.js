@@ -55,7 +55,7 @@ class Signup extends Component {
   }
 
   handleOnSignup = async (values, actions) => {
-    const { name, email, password } = values
+    const { name, email, password,goal } = values
 
     try {
       const response = await this.props.firebase.signupWithEmail(
@@ -65,7 +65,8 @@ class Signup extends Component {
 
       if (response.user.uid) {
         const { uid } = response.user
-        const userData = { email, name, uid }
+        const userData = { email, name, uid, goal }
+        console.log(userData)
         await this.props.firebase.createNewUser(userData)
         this.props.navigation.navigate('App')
       }
@@ -92,6 +93,7 @@ class Signup extends Component {
             email: '',
             password: '',
             confirmPassword: '',
+            goal:'0',
             check: false
           }}
           onSubmit={(values, actions) => {

@@ -9,18 +9,21 @@ class Home extends Component {
   };
   render() {
     return (
+      
       <View style={styles.container}>
+      <Text style={{fontSize:35,fontWeight:"bold", textAlign:'center', marginBottom:50,  textTransform: 'uppercase',paddingTop:20}}>Maak je keuze</Text>
         <View style={styles.button}>
         <Button 
           title='Begin wedstrijd'
           onPress={() => this.props.navigation.push('Select')}
           titleStyle={{
-            color: 'white'
+            color: 'white',
+            textTransform: 'uppercase',
           }}
           type='clear'
         />
         </View>
-        <View style={styles.button}>
+        {/* <View style={styles.button}>
          <Button
           title='Speleroverzicht(feature)'
           onPress={() => this.props.navigation.push('Detail')}
@@ -29,13 +32,14 @@ class Home extends Component {
           }}
           type='clear'
         />
-        </View>
+        </View> */}
         <View style={styles.button}>
          <Button
           title='Leaderbord'
           onPress={() => this.props.navigation.push('Leaderbord')}
           titleStyle={{
-            color: 'white'
+            color: 'white',
+            textTransform: 'uppercase',
           }}
           type='clear'
         />
@@ -45,7 +49,8 @@ class Home extends Component {
           title='Bezoek webshop'
           onPress={() => Linking.openURL('https://www.heemskerk-sport.nl/')}
           titleStyle={{
-            color: 'white'
+            color: 'white',
+            textTransform: 'uppercase',
           }}
           type='clear'
         />
@@ -56,7 +61,8 @@ class Home extends Component {
           title='log uit'
           onPress={() => Linking.openURL('Loguit')}
           titleStyle={{
-            color: 'white'
+            color: 'white',
+            textTransform: 'uppercase',
           }}
           type='clear'
         />
@@ -70,7 +76,7 @@ class Home extends Component {
 
 const styles = StyleSheet.create({
   container: {
-    flex: 1,
+    
     justifyContent: 'center',
     textAlign: 'center',
     backgroundColor: 'white',
@@ -82,7 +88,7 @@ const styles = StyleSheet.create({
     margin: 20,
     backgroundColor: 'black',
     borderRadius: 6,
-   
+    textTransform: 'uppercase',
   }
 })
 

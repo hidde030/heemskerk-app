@@ -1,0 +1,11 @@
+Setting a timer for a long period of time, i.e. multiple minutes#1
+
+Go to node_modules/react-native/Libraries/Core/Timer/JSTimers.js
+
+Look for the variable MAX_TIMER_DURATION_MS
+Change 60 * 1000 to 10000 * 1000
+
+
+Unable to resolve "./getChildEventSubscriber" from "node_modules/@react-navigation/core/lib/module/getChildNavigation.js"
+fixed: expo start -c 
+resets cache in node_modules

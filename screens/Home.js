@@ -78,7 +78,7 @@ const styles = StyleSheet.create({
   container: {
     
     justifyContent: 'center',
-    textAlign: 'center',
+ 
     backgroundColor: 'white',
     textTransform: 'uppercase',
     

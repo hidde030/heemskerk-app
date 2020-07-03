@@ -1,4 +1,3 @@
-
 import React, { Component } from 'react';
 import { StyleSheet, ScrollView, ActivityIndicator, View,Text} from 'react-native';
 import { ListItem,Avatar } from 'react-native-elements'
@@ -30,7 +29,7 @@ class Leaderbord extends Component {
     querySnapshot.forEach((res) => {
       
       const { name, email, avatar_url,scores,goals} = res.data();
-      console.log(avatar_url)
+      // console.log(avatar_url)
       userArr.push({
         key: res.id,
         res,
@@ -77,7 +76,7 @@ class Leaderbord extends Component {
                   // leftAvatar={{ source: { uri: item.avatar_url } } height={'100'} width={'100'}}
                   // subtitle={{<View><Text>3214</Text></View>}} {item.scores}
                   rightSubtitle={item.goals}
-                  rightTitle={goals}
+                  rightTitle={`Goals`}
                   onPress={() => {
                     this.props.navigation.navigate('', {
                       userkey: item.key

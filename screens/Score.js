@@ -1,6 +1,6 @@
 import React, { Component, Fragment } from 'react'
 import { StyleSheet, Text, View, Linking, ActivityIndicator } from 'react-native'
-import { ListItem, Button  } from 'react-native-elements'
+import { ListItem, Button } from 'react-native-elements'
 
 import firebase from 'firebase';
 import 'firebase/firestore';
@@ -10,8 +10,10 @@ import { AuthSession } from 'expo';
 
 
 class Score extends Component {
+    
     constructor() {
         super();
+        
         this.firestoreRef = firebase.firestore().collection('scores');
         this.state = {
             isLoading: true,
@@ -31,7 +33,7 @@ class Score extends Component {
         const userArr = [];
 
         querySnapshot.forEach((res) => {
-            
+
             // const { uid } = response.user
             const { name, goal } = res.data();
             // console.log(goal, name)
@@ -49,7 +51,7 @@ class Score extends Component {
             isLoading: false,
         });
     }
-
+    goToWinner = () => this.props.navigation.navigate('Winner')
     render() {
         if (this.state.isLoading) {
             return (
@@ -79,55 +81,55 @@ class Score extends Component {
                 <View style={{}}>
                     <Text style={{ textAlign: 'center', width: '100%', fontSize: 20, marginTop: 20, fontWeight: "bold" }}>Score</Text>
                     <View style={{ flexWrap: 'wrap', flexDirection: 'row', marginTop: 20, justifyContent: 'center' }}>
-                    
-                        {
-                            this.state.userArr.map((item, i) => {
-                                
-                                return (
-                                    <View  style={{ width: 60, alignSelf: 'center', marginRight: 10, height: 60, backgroundColor: '#000' }} key={i} >
-
-
-                                        <Text style={{textAlign: 'center', fontSize: 20, fontWeight: "bold", color: '#fff', lineHeight: 60 }}>
-                                           {item.goal}
-                                        </Text>
-                                    </View>
-                                );
-                            })
-                        }
-       
 
                         {
                             this.state.userArr.map((item, i) => {
+
                                 return (
-                                    <View  style={{ width: 60, alignSelf: 'center', marginRight: 10, height: 60, backgroundColor: '#000' }} key={i}>
-                                        <Text style={{textAlign: 'center', fontSize: 20, fontWeight: "bold", color: '#fff', lineHeight: 60 }}>
+                                    <View style={{ width: 60, alignSelf: 'center', marginRight: 10, height: 60, backgroundColor: '#000' }} key={i} >
+
+
+                                        <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: "bold", color: '#fff', lineHeight: 60 }}>
                                             {item.goal}
                                         </Text>
                                     </View>
                                 );
                             })
                         }
-       
+
+
+                        {
+                            this.state.userArr.map((item, i) => {
+                                return (
+                                    <View style={{ width: 60, alignSelf: 'center', marginRight: 10, height: 60, backgroundColor: '#000' }} key={i}>
+                                        <Text style={{ textAlign: 'center', fontSize: 20, fontWeight: "bold", color: '#fff', lineHeight: 60 }}>
+                                            {item.goal}
+                                        </Text>
+                                    </View>
+                                );
+                            })
+                        }
+
 
                     </View>
                 </View>
                 <View style={{}}>
                     <View style={{ flexWrap: 'wrap', flexDirection: 'row', justifyContent: 'center', fontWeight: "bold" }}>
                         <View style={{ width: 100, height: 50 }}>
-                        {
-                            this.state.userArr.map((item, i) => {
-                                return (
-                                    <View  style={{ color:'#000',width: 100, height: 50 }} key={i} >
+                            {
+                                this.state.userArr.map((item, i) => {
+                                    return (
+                                        <View style={{ color: '#000', width: 100, height: 50 }} key={i} >
 
 
-                                        <Text style={{ color: '#000',width: 100, height: 50, marginLeft:40  }}>
-                                        {item.name}
-                                        </Text>
-                                    </View>
-                                );
-                            })
-                        }
-       
+                                            <Text style={{ color: '#000', width: 100, height: 50, marginLeft: 40 }}>
+                                                {item.name}
+                                            </Text>
+                                        </View>
+                                    );
+                                })
+                            }
+
                         </View>
                         <View style={{ width: 100, height: 50 }} >
                             <Text>KEVIN</Text>
@@ -178,16 +180,16 @@ class Score extends Component {
                     <View style={styles.circle}></View>
                 </View>
                 <View style={styles.button}>
-         <Button
-          title='winner'
-          onPress={() => Linking.openURL('Winner')}
-          titleStyle={{
-            color: 'white',
-            textTransform: 'uppercase',
-          }}
-          type='clear'
-        />
-        </View>
+                    <Button
+                        title='winner'
+                        onPress={this.goToWinner}
+                        titleStyle={{
+                            color: 'white',
+                            textTransform: 'uppercase',
+                        }}
+                        type='clear'
+                    />
+                </View>
             </View>
         )
     }
@@ -197,7 +199,7 @@ class Score extends Component {
 const styles = StyleSheet.create({
     container: {
         height: '100%',
-        fontSize: 2
+    
     },
     time: {
         height: '20%',
@@ -248,12 +250,12 @@ const styles = StyleSheet.create({
         justifyContent: 'center'
     },
     button: {
-        height:50,
+        height: 50,
         margin: 20,
         backgroundColor: 'black',
         borderRadius: 6,
         textTransform: 'uppercase',
-      }
+    }
 
 
 })

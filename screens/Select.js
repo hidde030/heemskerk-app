@@ -31,7 +31,7 @@ class Select extends Component {
         this.setState({
             isDisabled: true
         });
-        console.log('Now, button disabled');
+        // console.log('Now, button disabled');
     }
     render() {
         const { isDisabled } = this.state;
@@ -53,7 +53,7 @@ class Select extends Component {
                         style={{ fontSize: 20, color: 'white' }}
                         styleDisabled={{ color: 'white' }}
                         disabled={isDisabled}
-                        containerStyle={{ overflow: 'hidden', borderRadius: 18, backgroundColor: 'black', width: 120, }}
+                        containerStyle={{ overflow: 'hidden', borderRadius: 18, backgroundColor: 'black', width: 120, paddingTop:8}}
                         disabledContainerStyle={{ backgroundColor: 'black', opacity: 0.5, }}
                         onPress={() => this._handlePress()}
                     >

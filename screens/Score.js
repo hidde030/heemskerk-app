@@ -10,10 +10,10 @@ import { AuthSession } from 'expo';
 
 
 class Score extends Component {
-    
+
     constructor() {
         super();
-        
+
         this.firestoreRef = firebase.firestore().collection('scores');
         this.state = {
             isLoading: true,
@@ -181,8 +181,9 @@ class Score extends Component {
                 </View>
                 <View style={styles.button}>
                     <Button
-                        title='winner'
+                        title='GEWONNEN!'
                         onPress={this.goToWinner}
+                
                         titleStyle={{
                             color: 'white',
                             textTransform: 'uppercase',
@@ -199,7 +200,7 @@ class Score extends Component {
 const styles = StyleSheet.create({
     container: {
         height: '100%',
-    
+
     },
     time: {
         height: '20%',

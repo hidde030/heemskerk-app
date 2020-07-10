@@ -63,7 +63,7 @@ class Leaderbord extends Component {
                   {item.name}
                   {item.goal}
                   </Text>
-                  </View>
+                </View>
               );
             })
           }
